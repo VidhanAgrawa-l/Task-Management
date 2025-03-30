@@ -1,0 +1,90 @@
+{% include 'layout.html' %}
+
+<div class="container mt-4">
+    <h2 class="text-center">Your Task Management Board</h2>
+    <p class="text-center">Organized by the Eisenhower Matrix</p>
+
+    <div class="row">
+        <!-- Do Section -->
+        <div class="col-md-6">
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-primary text-white">Do (Urgent & Important)</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for todo in todos if todo.category == 'do' %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ todo.title }}</span>
+                            <div>
+                                <button onclick="window.location.href='edit-todo-page/{{todo.id}}'" class="btn btn-info btn-sm">Edit</button>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delegate Section -->
+        <div class="col-md-6">
+            <div class="card border-warning mb-3">
+                <div class="card-header bg-warning text-dark">Delegate (Urgent & Not Important)</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for todo in todos if todo.category == 'delegate' %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ todo.title }}</span>
+                            <div>
+                                <button onclick="window.location.href='edit-todo-page/{{todo.id}}'" class="btn btn-info btn-sm">Edit</button>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Schedule Section -->
+        <div class="col-md-6">
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Schedule (Not Urgent & Important)</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for todo in todos if todo.category == 'schedule' %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ todo.title }}</span>
+                            <div>
+                                <button onclick="window.location.href='edit-todo-page/{{todo.id}}'" class="btn btn-info btn-sm">Edit</button>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eliminate Section -->
+        <div class="col-md-6">
+            <div class="card border-danger mb-3">
+                <div class="card-header bg-danger text-white">Eliminate (Not Urgent & Not Important)</div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for todo in todos if todo.category == 'eliminate' %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ todo.title }}</span>
+                            <div>
+                                <button onclick="window.location.href='edit-todo-page/{{todo.id}}'" class="btn btn-info btn-sm">Edit</button>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="add-todo-page" class="btn btn-primary">Add a New Task</a>
+    </div>
+</div>
