@@ -1,0 +1,22 @@
+bcrypt==4.0.1 #important tip- use this specific version ,otherwise u will gonna have some conflict with passlib 
+cryptography
+fastapi
+psycopg2-binary
+PyMySQL
+python-jose
+python-multipart
+SQLAlchemy
+uvicorn
+passlib
+pytest
+httpx
+pytest-asyncio
+aiofiles
+jinja2
+
+dotenv
+python-dotenv
+# psycopg2
+supabase
+dotenv
+python-dotenv
